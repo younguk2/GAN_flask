@@ -65,7 +65,7 @@ def suit_style(file_path,imgNum):
 
     input_image_path = file_path
     output_image_path = file_path
-    new_height = 340  # 새로운 이미지의 높이 300
+    new_height = 320  # 새로운 이미지의 높이 300
 
     extended_img = extend_image(input_image_path, new_height)
     extended_img.save(output_image_path)
@@ -111,7 +111,7 @@ def suit_style(file_path,imgNum):
     response = client.images.edit(
         image=open('./rgba.png', "rb"),
         mask=open('./masked_rgba.png', "rb"),
-        prompt="A Person not wearing a suit, transformed to wear a formal suit photorealistic to attend job ,no background, Make your neck color similar to your face skin color",
+        prompt="A Person not wearing a suit, transformed to wear a formal suit,photorealistic,no background, Make your neck color similar to your face skin color",
         n=1,
         size="256x256"
     )
