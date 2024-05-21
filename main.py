@@ -113,7 +113,7 @@ def suit_style(file_path,imgNum):
         mask=open('./masked_rgba.png', "rb"),
         prompt="A Person not wearing a suit, transformed to wear a formal suit photorealistic to attend job ,no background, Make your neck color similar to your face skin color",
         n=1,
-        size="1024x1024"
+        size="256x256"
     )
 
     image_url = response.data[0].url
