@@ -473,12 +473,13 @@ def editPicture():
             return jsonify({'error': 'Folder name is required'}), 400
 
         # 폴더 생성 (S3에서는 폴더가 객체 키의 접미사로 생성됨)
-        folder_key = f'{folder_name}/'  # 끝에 슬래시를 붙여 폴더로 인식되게 함
+        folder_key = f'idPhoto/{folder_name}/'  # 끝에 슬래시를 붙여 폴더로 인식되게 함
         client.put_object(Bucket=bucket, Key=folder_key)
 
         if sex == 'male':
-            for imgNum in range(1,6):
-                suit_style(file_path[imgNum],imgNum+1)
+            # for imgNum in range(1,6):
+            #     suit_style(file_path[imgNum],imgNum+1)
+            #suit_style(file_path[1],2)
             if(background != 'none'):
                 for imgNum in range(1,6):
                     # 블러 효과 함수 호출
@@ -512,8 +513,8 @@ def editPicture():
                     # 결과 데이터 추가
                     return_data.append({'UploadedFilePath': 'https://jobhakdasik2000-bucket.s3.ap-northeast-2.amazonaws.com/' + object_path, 'message': 'success'})
         else:
-            for imgNum in range(0,5):
-                suit_style(file_path[imgNum],imgNum+1)
+            # for imgNum in range(0,5):
+            #     suit_style(file_path[imgNum],imgNum+1)
             if(background != 'none'):
                 # 블러 효과 함수 호출
                 #set_blur_image(file_path[imgNum],blurStyle)
