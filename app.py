@@ -477,8 +477,8 @@ def editPicture():
         client.put_object(Bucket=bucket, Key=folder_key)
 
         if sex == 'male':
-            # for imgNum in range(1,6):
-            #     suit_style(file_path[imgNum],imgNum+1)
+            for imgNum in range(1,6):
+                suit_style(file_path[imgNum],imgNum+1)
             if(background != 'none'):
                 for imgNum in range(1,6):
                     # 블러 효과 함수 호출
@@ -496,7 +496,7 @@ def editPicture():
                     object_path = r'idPhoto/{}/'.format(folder_name) + str(uuid.uuid4()) + 'download.jpg'
                     
                     # S3 업로드 코드 (주석 처리된 부분을 필요에 따라 활성화하세요)
-                    #response = client.upload_file(output_path, bucket, object_path, ExtraArgs={'ACL': 'public-read'})
+                    response = client.upload_file(output_path, bucket, object_path, ExtraArgs={'ACL': 'public-read'})
                     
                     # 결과 데이터 추가
                     return_data.append({'UploadedFilePath': 'https://jobhakdasik2000-bucket.s3.ap-northeast-2.amazonaws.com/' + object_path, 'message': 'success'})
@@ -512,8 +512,8 @@ def editPicture():
                     # 결과 데이터 추가
                     return_data.append({'UploadedFilePath': 'https://jobhakdasik2000-bucket.s3.ap-northeast-2.amazonaws.com/' + object_path, 'message': 'success'})
         else:
-            # for imgNum in range(0,5):
-            #     suit_style(file_path[imgNum],imgNum+1)
+            for imgNum in range(0,5):
+                suit_style(file_path[imgNum],imgNum+1)
             if(background != 'none'):
                 # 블러 효과 함수 호출
                 #set_blur_image(file_path[imgNum],blurStyle)
@@ -589,7 +589,7 @@ def editPicture():
         #이미지를 아마존 S3에 업로드한다 (idPhoto)
         object_path = r'idPhoto/{}/'.format(folder_name) + str(uuid.uuid4()) + 'download.'+extension
         file_path = r'./res.'+extension
-        #response = client.upload_file(file_path, bucket, object_path,ExtraArgs={'ACL': 'public-read'})
+        response = client.upload_file(file_path, bucket, object_path,ExtraArgs={'ACL': 'public-read'})
         return_data.append({'UploadedFilePath': 'https://jobhakdasik2000-bucket.s3.ap-northeast-2.amazonaws.com/'+object_path, 'message': 'success'})
 
         # 디렉토리 경로
