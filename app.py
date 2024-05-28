@@ -210,10 +210,11 @@ def editPicture():
             suit_style(file_path[0],1,sex)
             suit_style(file_path[1],2,sex)
             if(background != 'none'):
-                # 블러 효과 함수 호출
-                #set_blur_image(file_path[imgNum],blurStyle)
                 for imgNum in range(0,2):
                     if(imgNum < 2):
+                        # 블러 효과 함수 호출
+                        #set_blur_image(file_path[imgNum],blurStyle)
+                        
                         # 파이썬 라이브러리를 이용한 배경제거 
                         delete_background(file_path[imgNum], imgNum+1)
 
